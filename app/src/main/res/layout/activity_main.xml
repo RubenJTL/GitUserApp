@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:orientation="vertical">
+        tools:context=".ux.MainActivity" android:orientation="vertical">
 
     <TextView
             android:text="GitHub User"
@@ -21,21 +21,21 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/editText" android:layout_weight="1"/>
+                android:id="@+id/editText_Search" android:layout_weight="1"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_search_category_default"
-                android:id="@+id/imageButton" android:layout_weight="1"/>
+                android:id="@+id/imageButton_Search" android:layout_weight="1"/>
     </LinearLayout>
     <ProgressBar
             android:visibility="invisible"
-            android:id="@+id/progress"
+            android:id="@+id/progress_bar"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
+            android:id="@+id/recycler_User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

@@ -21,11 +21,6 @@ class Adapter_User(val items : ArrayList<User>, val context: Context, val clickL
         p0.login.text = items[p1].login
         Picasso.get().load(items[p1].avatarUrl).into(p0.avatar)
         (p0).bind(items[p1], clickListener)
-
-        if (p1 % 2 != 0){
-            p0.itemView.setBackgroundColor(Color.parseColor("#87CEFA"))
-        }
-
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): UserHolder {
