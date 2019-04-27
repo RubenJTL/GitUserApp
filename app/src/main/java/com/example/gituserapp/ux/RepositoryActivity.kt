@@ -1,5 +1,6 @@
 package com.example.gituserapp.ux
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -33,6 +34,12 @@ class RepositoryActivity : AppCompatActivity() {
 
         val client = setupApollo()
         user_name.setText(username)
+        dataBaseRepositories(client,username,context)
+
+
+    }
+
+    fun dataBaseRepositories(client: ApolloClient,username: String,context: Context){
         client.query(RepositoriesQuery
             .builder()
             .user_name(username)
@@ -59,15 +66,14 @@ class RepositoryActivity : AppCompatActivity() {
                                 )
                             )
                         }
+                        emptyViewVisibility(repositories.count());
                         recycler_Repository.adapter = Adapter_Repository(repositories, context)
                         progress_bar.visibility = View.INVISIBLE
                     }
 
                 }
             })
-
     }
-
     private fun setupApollo(): ApolloClient {
         val okHttp = OkHttpClient
             .Builder()
@@ -76,7 +82,7 @@ class RepositoryActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "<YOUR TOKEN>")
+                    , "Bearer " + "<your token>")
                 chain.proceed(builder.build())
             }
             .build()
@@ -90,5 +96,14 @@ class RepositoryActivity : AppCompatActivity() {
     {
         val name= findViewById(R.id.user_name) as TextView
         name.setText(username)
+    }
+
+    fun emptyViewVisibility(tam:Int){
+        if (tam==0){
+            System.out.println("esta aqui");
+            empty_view_include.visibility=View.VISIBLE
+        }else{
+            empty_view_include.visibility=View.INVISIBLE
+        }
     }
 }

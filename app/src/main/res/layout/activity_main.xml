@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -9,35 +9,48 @@
     <TextView
             android:text="GitHub User"
             android:textSize="48dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView"/>
+            android:layout_width="369dp"
+            android:layout_height="wrap_content" android:id="@+id/textView" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp" android:layout_alignParentStart="true" android:layout_marginStart="20dp"/>
     <LinearLayout
+            android:id="@+id/linear_layout_main"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp" android:layout_below="@+id/textView">
+
         <EditText
-                android:layout_width="310dp"
-                android:layout_height="61dp"
+                android:layout_width="277dp"
+                android:layout_height="64dp"
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/editText_Search" android:layout_weight="1"/>
+                android:id="@+id/editText_Search" android:layout_weight="1"
+                />
         <ImageButton
-                android:layout_width="wrap_content"
+                android:layout_width="113dp"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_search_category_default"
-                android:id="@+id/imageButton_Search" android:layout_weight="1"/>
+                android:id="@+id/imageButton_Search" android:layout_weight="1"
+               />
     </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_User"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     <ProgressBar
             android:visibility="invisible"
             android:id="@+id/progress_bar"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+            android:layout_below="@+id/linear_layout_main"/>
 
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_User"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:layout_below="@+id/linear_layout_main"/>
 
-</LinearLayout>
+    <include
+            android:visibility="visible"
+            android:id="@+id/empty_view_include"
+            android:layout_below="@+id/linear_layout_main"
+            layout="@layout/empty_view" android:layout_height="wrap_content" android:layout_width="match_parent"/>
+
+</RelativeLayout>
