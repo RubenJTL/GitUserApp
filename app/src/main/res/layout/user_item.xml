@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:paddingLeft="16dp"
@@ -12,21 +12,21 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:focusable="true">
 
-    <ImageView
-            android:src="@drawable/ic_github"
-            android:id="@+id/avatar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
     <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="53dp">
+        <ImageView
+                android:src="@drawable/ic_github"
+                android:id="@+id/avatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
         <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
             <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/nameLocation"
                     android:textSize="20sp"
                     android:textColor="#111"
                     android:text="Name"
@@ -37,10 +37,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"/>
             <TextView
-                    android:id="@+id/location"
-                    android:textSize="20dp"
+                    android:id="@+id/login"
+                    android:textSize="16dp"
                     android:textColor="#111"
-                    android:text="Location"
+                    android:text="Login"
                     android:layout_toRightOf="@id/avatar"
                     android:layout_centerVertical="true"
                     android:gravity="center_vertical"
@@ -48,19 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"/>
         </LinearLayout>
-        <TextView
-                android:id="@+id/login"
-                android:textSize="16dp"
-                android:textColor="#111"
-                android:text="Login"
-                android:layout_toRightOf="@id/avatar"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"/>
     </LinearLayout>
-
     <View
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"

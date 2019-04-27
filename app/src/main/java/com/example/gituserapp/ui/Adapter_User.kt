@@ -38,6 +38,6 @@ class UserHolder (view: View) : RecyclerView.ViewHolder(view) {
         itemView.setOnClickListener{clickListener(part)}
     }
     val avatar : ImageView = view.avatar
-    val nameLocation : TextView = view.location
+    val nameLocation : TextView = view.nameLocation
     val login : TextView = view.login
 }
