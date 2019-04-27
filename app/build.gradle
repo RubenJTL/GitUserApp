@@ -8,6 +8,7 @@ apply plugin: 'com.apollographql.android'
 
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.example.gituserapp"
         minSdkVersion 23
@@ -41,4 +42,10 @@ dependencies {
     implementation "com.apollographql.apollo:apollo-android-support:$ApolloGQLVersion"
     implementation "com.apollographql.apollo:apollo-rx2-support:$ApolloGQLVersion"
     implementation "com.apollographql.apollo:apollo-http-cache:$ApolloGQLVersion"
+}
+
+apollo {
+    customTypeMapping = [
+            "URI": "java.lang.String"
+    ]
 }

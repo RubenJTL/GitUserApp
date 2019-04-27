@@ -1,7 +1,7 @@
 query RepositoriesQuery($user_name:String!){
     user(login: $user_name) {
         name
-        repositories(last:10) {
+        repositories(last:20) {
             edges {
                 node {
                     name

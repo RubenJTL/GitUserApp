@@ -8,7 +8,8 @@ buildscript {
     repositories {
         google()
         jcenter()
-    }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+        }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradlePluginVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -21,8 +22,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
-    }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+
+        }
 }
 
 task clean(type: Delete) {

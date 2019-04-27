@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.TextView
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.ApolloClient
+import com.apollographql.apollo.Github.RepositoriesQuery
+import com.apollographql.apollo.api.Response
 
 import com.apollographql.apollo.exception.ApolloException
 import com.example.gituserapp.R
@@ -19,7 +21,6 @@ import okhttp3.OkHttpClient
 class RepositoryActivity : AppCompatActivity() {
 
     val repositories: ArrayList<Repository> = ArrayList()
-    val BASE_URL = "https://api.github.com/graphql"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,18 +28,44 @@ class RepositoryActivity : AppCompatActivity() {
 
         val username:String = intent.getStringExtra("user_name")
         val context = this
-        ViewUserName(username)
-        recycler_Repository.layoutManager=LinearLayoutManager(this)
+
+        recycler_Repository.layoutManager = LinearLayoutManager(this)
 
         val client = setupApollo()
+        user_name.setText(username)
+        client.query(RepositoriesQuery
+            .builder()
+            .user_name(username)
+            .build())
+            .enqueue(object : ApolloCall.Callback<RepositoriesQuery.Data>() {
+                override fun onFailure(e: ApolloException) {
+                    Log.d("ss",e.message.toString())
+                    Log.d("ss",e.printStackTrace().toString())
+                }
 
-        repositories.add(Repository("tratos.com","ni idea","probando",1))
-        repositories.add(Repository("tratos2.com","ni idea2","probando2",0))
-        repositories.add(Repository("tratos3.com","ni idea3","probando3",0))
+                override fun onResponse(response: Response<RepositoriesQuery.Data>) {
+                    Log.d("ssdd"," " + response.data()?.user())
+                    runOnUiThread {
+                        progress_bar.visibility = View.VISIBLE
+                        //user_name.setText(response.data()?.user()?.repositories().toString())
+                        val repos = response.data()?.user()?.repositories()?.edges()
+                        repos!!.forEach {
+                            repositories.add(
+                                Repository(
+                                    name = it.node()!!.name(),
+                                    url = it.node()!!.url(),
+                                    description = it.node()!!.description().toString(),
+                                    PR_count = it.node()!!.pullRequests().totalCount()
+                                )
+                            )
+                        }
+                        recycler_Repository.adapter = Adapter_Repository(repositories, context)
+                        progress_bar.visibility = View.INVISIBLE
+                    }
 
-        progress_bar.visibility = View.VISIBLE
-        recycler_Repository.adapter = Adapter_Repository(repositories, context)
-        progress_bar.visibility = View.INVISIBLE
+                }
+            })
+
     }
 
     private fun setupApollo(): ApolloClient {
@@ -49,12 +76,12 @@ class RepositoryActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "<autentificationKey >")
+                    , "Bearer " + "<YOUR TOKEN>")
                 chain.proceed(builder.build())
             }
             .build()
         return ApolloClient.builder()
-            .serverUrl(BASE_URL)
+            .serverUrl("https://api.github.com/graphql")
             .okHttpClient(okHttp)
             .build()
     }
