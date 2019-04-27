@@ -6,12 +6,21 @@
         android:layout_height="match_parent"
         tools:context=".ux.MainActivity" android:orientation="vertical">
 
-    <TextView
-            android:text="User Name"
-            android:textSize="16dp"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/user_name"/>
+            android:layout_height="78dp"
+            android:id="@+id/user_Layout"
+            android:background="@color/grey">
+        <TextView
+                android:text="User Name"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|bottom"
+                android:id="@+id/user_name"/>
+    </LinearLayout>
 
     <ProgressBar
             android:visibility="invisible"
@@ -19,17 +28,17 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_name"/>
+            android:layout_below="@+id/user_Layout"/>
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_Repository"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_name"/>
+            android:layout_below="@+id/user_Layout"/>
     <include
             android:visibility="visible"
             android:id="@+id/empty_view_include"
-            android:layout_below="@+id/user_name"
+            android:layout_below="@+id/user_Layout"
             layout="@layout/empty_view" android:layout_height="wrap_content" android:layout_width="match_parent"/>
 
 

@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="10dp"
@@ -20,9 +20,10 @@
         <TextView
                 android:id="@+id/name_txt"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"/>
+                android:text="TextView"
+                android:textSize="20dp"/>
 
         <TextView
                 android:id="@+id/pr_count_int"
@@ -31,13 +32,14 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="TextView"
-                android:textSize="12sp"/>
+                android:textSize="12.8dp"/>
     </LinearLayout>
 
     <TextView
             android:id="@+id/description_txt"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:textSize="12.8dp"
             android:text="TextView"/>
     <View
             android:layout_alignParentBottom="true"

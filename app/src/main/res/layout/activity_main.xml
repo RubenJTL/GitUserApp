@@ -4,34 +4,48 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ux.MainActivity" android:orientation="vertical">
+        tools:context=".ux.MainActivity" android:orientation="vertical"
+        >
 
-    <TextView
-            android:text="GitHub User"
-            android:textSize="48dp"
-            android:layout_width="369dp"
-            android:layout_height="wrap_content" android:id="@+id/textView" android:layout_alignParentEnd="true"
-            android:layout_marginEnd="22dp" android:layout_alignParentStart="true" android:layout_marginStart="20dp"/>
     <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/linear_layout_main"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp" android:layout_below="@+id/textView">
+            android:background="@color/grey">
+        <TextView
+                android:text="GitHub User"
+                android:textSize="50dp"
+                android:fontFamily="@font/collegia"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView"
+                android:layout_marginEnd="16dp" android:layout_marginStart="16dp"
+        />
+        <LinearLayout
 
-        <EditText
-                android:layout_width="277dp"
-                android:layout_height="64dp"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:ems="10"
-                android:id="@+id/editText_Search" android:layout_weight="1"
-                />
-        <ImageButton
-                android:layout_width="113dp"
-                android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_search_category_default"
-                android:id="@+id/imageButton_Search" android:layout_weight="1"
-               />
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="16dp" android:layout_marginStart="16dp"
+                >
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Search Git User"
+                    android:ems="10"
+                    android:textSize="28dp"
+                    android:id="@+id/editText_Search" android:layout_weight="1"
+            />
+            <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_search_category_default"
+                    android:id="@+id/imageButton_Search" android:layout_weight="1"
+            />
+        </LinearLayout>
     </LinearLayout>
     <ProgressBar
             android:visibility="invisible"
@@ -51,6 +65,6 @@
             android:visibility="visible"
             android:id="@+id/empty_view_include"
             android:layout_below="@+id/linear_layout_main"
-            layout="@layout/empty_view" android:layout_height="wrap_content" android:layout_width="match_parent"/>
+            layout="@layout/empty_view" android:layout_height="match_parent" android:layout_width="match_parent"/>
 
 </RelativeLayout>

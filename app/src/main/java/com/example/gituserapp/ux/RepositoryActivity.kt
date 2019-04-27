@@ -54,7 +54,7 @@ class RepositoryActivity : AppCompatActivity() {
                     Log.d("ssdd"," " + response.data()?.user())
                     runOnUiThread {
                         progress_bar.visibility = View.VISIBLE
-                        //user_name.setText(response.data()?.user()?.repositories().toString())
+                        user_name.setText(response.data()?.user()?.name().toString())
                         val repos = response.data()?.user()?.repositories()?.edges()
                         repos!!.forEach {
                             repositories.add(
@@ -82,7 +82,7 @@ class RepositoryActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "<your token>")
+                    , "Bearer " + "dc005957220ca6540a1a02f35b224237c2596a0c")
                 chain.proceed(builder.build())
             }
             .build()

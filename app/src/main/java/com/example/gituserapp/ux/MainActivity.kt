@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "<your token>")
+                    , "Bearer " + "dc005957220ca6540a1a02f35b224237c2596a0c")
                 chain.proceed(builder.build())
             }
             .build()
