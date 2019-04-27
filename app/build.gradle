@@ -8,7 +8,9 @@ apply plugin: 'com.apollographql.android'
 
 android {
     compileSdkVersion 28
-
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
     defaultConfig {
         applicationId "com.example.gituserapp"
         minSdkVersion 23
@@ -16,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "GITHUB_TOKEN", keystoreProperties["GITHUB_TOKEN"]
     }
     buildTypes {
         release {

@@ -13,6 +13,7 @@ import com.apollographql.apollo.Github.RepositoriesQuery
 import com.apollographql.apollo.api.Response
 
 import com.apollographql.apollo.exception.ApolloException
+import com.example.gituserapp.BuildConfig
 import com.example.gituserapp.R
 import com.example.gituserapp.model.Repository
 import com.example.gituserapp.ui.Adapter_Repository
@@ -82,7 +83,7 @@ class RepositoryActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "dc005957220ca6540a1a02f35b224237c2596a0c")
+                    , "Bearer " + BuildConfig.GITHUB_TOKEN)
                 chain.proceed(builder.build())
             }
             .build()

@@ -24,6 +24,8 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.empty_view.*
 import okhttp3.OkHttpClient
+import com.example.gituserapp.BuildConfig
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -94,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "dc005957220ca6540a1a02f35b224237c2596a0c")
+                    , "Bearer " + BuildConfig.GITHUB_TOKEN)
                 chain.proceed(builder.build())
             }
             .build()
