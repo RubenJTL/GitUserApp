@@ -45,6 +45,6 @@ It's important to replace the github token in `keystore.properties` file in proj
 ## Images:
 
 ![MainActivity](https://github.com/RubenJTL/GitUserApp/blob/master/IMAGESAPP/emptyview.PNG)
-![GetRepositoriesActivity](./IMAGEAPP/searchusers.PNG)
-![GetRepositoriesActivity](./IMAGEAPP/repositories.PNG)
+![GetRepositoriesActivity](https://github.com/RubenJTL/GitUserApp/blob/master/IMAGESAPP/searchusers.PNG)
+![GetRepositoriesActivity](https://github.com/RubenJTL/GitUserApp/blob/master/IMAGESAPP/repositories.PNG)
 
