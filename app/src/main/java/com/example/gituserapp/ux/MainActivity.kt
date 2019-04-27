@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val context = this
-        users.add(User("ruben_jtl","ruben","Peru",R.drawable.ic_github))
+        users.add(User("ruben_jtl","ruben","",R.drawable.ic_github))
         users.add(User("ruben_jtl@nsa","Jesus","Peru",R.drawable.ic_github))
         recycler_User.layoutManager = LinearLayoutManager(this)
         val searchButton = findViewById(R.id.imageButton_Search) as ImageButton

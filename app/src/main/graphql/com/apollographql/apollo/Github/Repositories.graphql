@@ -1,0 +1,17 @@
+query RepositoriesQuery($user_name:String!){
+    user(login: $user_name) {
+        name
+        repositories(last:10) {
+            edges {
+                node {
+                    name
+                    url
+                    description
+                    pullRequests{
+                        totalCount
+                    }
+                }
+            }
+        }
+    }
+}
