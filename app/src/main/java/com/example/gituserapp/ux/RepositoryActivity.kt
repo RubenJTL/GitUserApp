@@ -49,7 +49,7 @@ class RepositoryActivity : AppCompatActivity() {
                 val builder = original.newBuilder().method(original.method(),
                     original.body())
                 builder.addHeader("Authorization"
-                    , "Bearer " + "ba05e816296c99a3b1ce6ef226c7e8187ebcd692")
+                    , "Bearer " + "<autentificationKey >")
                 chain.proceed(builder.build())
             }
             .build()
